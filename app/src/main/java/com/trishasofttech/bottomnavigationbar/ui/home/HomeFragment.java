@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -72,13 +73,7 @@ public class HomeFragment extends Fragment {
                 }
                 else {
                         datasendToserver();
-                    /*to fix the recyclerview area size to be display and fetch from api side*/
-                    recyclerView.setHasFixedSize(true);
-                    /*recyclerview in linear form*/
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    /*to call the Adapter for attaching the data into recyclerview*/
-                    RachitAdapter rachit = new RachitAdapter();
-                    recyclerView.setAdapter(rachit);
+
                 }
             }
         });
@@ -118,7 +113,13 @@ public class HomeFragment extends Fragment {
                                 arrayList.add(h);
                                 Toast.makeText(getActivity(), arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
                             }
-
+                            /*to fix the recyclerview area size to be display and fetch from api side*/
+                            recyclerView.setHasFixedSize(true);
+                            /*recyclerview in linear form*/
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                            /*to call the Adapter for attaching the data into recyclerview*/
+                            RachitAdapter rachit = new RachitAdapter();
+                            recyclerView.setAdapter(rachit);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -136,7 +137,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void datasendToserver() {
-        StringRequest sr = new StringRequest(1, "http://searchkero.com/calldir/registerrecord.php",
+        StringRequest sr = new StringRequest(1, "http://searchkero.com/calldir/updaterecord.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -181,10 +182,19 @@ public class HomeFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull RachitHolder holder, int position) {
             /*to attach the data to item object*/
-            HashMap<String, String> h = arrayList.get(position);
+            final HashMap<String, String> h = arrayList.get(position);
             //Toast.makeText(getActivity(), h.toString(), Toast.LENGTH_SHORT).show();
             holder.tv_name.setText(h.get("namekey"));
             holder.tv_mobile.setText(h.get("emailkey"));
+            holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   /*to set/display the data into etname, etmobile*/
+                   etmobile.setText(h.get("emailkey"));
+                   etname.setText(h.get("namekey"));
+                }
+            });
+
         }
 
         @Override
@@ -195,10 +205,12 @@ public class HomeFragment extends Fragment {
 
     public class RachitHolder extends RecyclerView.ViewHolder {
         TextView tv_name, tv_mobile;
+        ConstraintLayout constraintLayout;;
         public RachitHolder(@NonNull View itemView) {
             super(itemView);
             tv_mobile = itemView.findViewById(R.id.tv_mobile);
             tv_name = itemView.findViewById(R.id.tv_name);
+            constraintLayout = itemView.findViewById(R.id.constraintlayout);
         }
     }
 }
