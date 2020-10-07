@@ -1,4 +1,4 @@
-package com.trishasofttech.bottomnavigationbar.ui.home;
+package com.trishasofttech.bottomnavigationbar.ui.addshowrecord;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,17 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -137,7 +133,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void datasendToserver() {
-        StringRequest sr = new StringRequest(1, "http://searchkero.com/calldir/updaterecord.php",
+        StringRequest sr = new StringRequest(1, "http://searchkero.com/calldir/registerrecord.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

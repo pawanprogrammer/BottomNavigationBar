@@ -1,4 +1,4 @@
-package com.trishasofttech.bottomnavigationbar.ui.dashboard;
+package com.trishasofttech.bottomnavigationbar.ui.updaterecord;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,4 +1,4 @@
-package com.trishasofttech.bottomnavigationbar.ui.share;
+package com.trishasofttech.bottomnavigationbar.ui.deleterecord;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

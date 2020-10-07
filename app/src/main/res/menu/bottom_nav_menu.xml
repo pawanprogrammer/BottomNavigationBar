@@ -16,4 +16,8 @@
         android:icon="@drawable/ic_imenu_share"
         android:title="Share" />
 
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
 </menu>

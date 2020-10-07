@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.updaterecord.DashboardFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Enter the Register Mobile No."
         android:id="@+id/etmobile"
-        android:hint="Enter Register Mobile No."
-        android:maxLength="10"
         app:layout_constraintTop_toTopOf="parent"></EditText>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etname"
-        android:hint="Updated Name"
-        app:layout_constraintTop_toBottomOf="@+id/etmobile"></EditText>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/etname"
-        android:text="Update Profile"
-        android:id="@+id/btn_update"></Button>
+        android:text="Search Record"
+        android:id="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/etmobile"></Button>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_record"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:padding="5dp"
+        android:fontFamily="serif"></TextView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
