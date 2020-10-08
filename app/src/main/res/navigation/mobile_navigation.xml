@@ -29,4 +29,9 @@
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 
+    <fragment
+        android:id="@+id/navigation_searchbetween"
+        android:name="com.trishasofttech.bottomnavigationbar.ui.searchbetween.SearchBetweenFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_searchbetween" />
 </navigation>
